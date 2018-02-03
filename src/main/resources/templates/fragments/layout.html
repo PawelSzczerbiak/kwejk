@@ -2,9 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Fragments</title>
 </head>
 <body>
+
+<div class="search-bar container" th:fragment="search-bar">
+    <div class="row">
+        <div class="col s12">
+            <form action="#" method="get">
+                <div class="input-field">
+                    <input name="q" type="search" placeholder="Search for gifs..." required="required" autocomplete="off"/>
+                    <i class="material-icons">search</i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="gifs container" th:fragment="gifs-list">
     <div class="row">

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class GifRepository {
 
     private static final String DEFAULT_USER = "Pawel"; // TODO: add login possibility
-    private static List<Gif> ALL_GIFS = new ArrayList<>();
+    private static final List<Gif> ALL_GIFS = new ArrayList<>();
 
     static{
         ALL_GIFS.add(new Gif("android-explosion",DEFAULT_USER, true));
@@ -34,6 +34,6 @@ public class GifRepository {
         return ALL_GIFS.stream()
                 .filter(p-> p.getName().equals(name))
                 .findFirst()
-                .orElse(ALL_GIFS.get(1));
+                .orElse(ALL_GIFS.get(1)); // TODO: better choice?
     }
 }
