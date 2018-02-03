@@ -22,4 +22,10 @@ public class HomeController {
         model.addAttribute("gifs", GifRepository.findFavorites());
         return "favorites";
     }
+
+    @GetMapping("/gif/{name}")
+    public String displayGif(@PathVariable String name, Model model){
+        model.addAttribute("gif", GifRepository.findByName(name));
+        return "gif-details";
+    }
 }

@@ -29,6 +29,16 @@ public class GifRepository {
     }
 
     public static List<Gif> findFavorites(){
-        return ALL_GIFS.stream().filter(g -> g.getFavorite()).collect(Collectors.toList());
+        return ALL_GIFS.stream()
+                .filter(Gif::getFavorite)
+                .collect(Collectors.toList());
     }
+
+    public static Gif findByName(String name){
+        return ALL_GIFS.stream()
+                .filter(p-> p.getName().equals(name))
+                .findFirst()
+                .orElse(ALL_GIFS.get(1));
+    }
+
 }
