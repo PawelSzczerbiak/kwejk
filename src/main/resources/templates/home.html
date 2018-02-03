@@ -45,8 +45,10 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           <h1>Miejsce na wyświetlenie gifów:)</h1>
-        </div>
+           <h1>Miejsce na wyświetlenie gifów:)</h1></div>
+         <div>
+           <img th:src="@{/gifs/cowboy-coder.gif}"/>
+           <img th:src="${gif.getThymeleafFilePath()}"/></div>
     </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
