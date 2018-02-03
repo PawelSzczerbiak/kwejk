@@ -8,20 +8,16 @@ import java.util.stream.Collectors;
 
 public class GifRepository {
 
-    private static final String DEFAULT_USER = "Pawel";
+    private static final String DEFAULT_USER = "Pawel"; // TODO: add login possibility
     private static List<Gif> ALL_GIFS = new ArrayList<>();
 
     static{
-        ALL_GIFS.add(new Gif("android-explosion",getDefaultUser(), true));
-        ALL_GIFS.add(new Gif("ben-and-mike",getDefaultUser(), true));
-        ALL_GIFS.add(new Gif("book-dominos",getDefaultUser(), false));
-        ALL_GIFS.add(new Gif("compiler-bot",getDefaultUser(), false));
-        ALL_GIFS.add(new Gif("cowboy-coder",getDefaultUser(), true));
-        ALL_GIFS.add(new Gif("infinite-andrew",getDefaultUser(), false));
-    }
-
-    public static String getDefaultUser() {
-        return DEFAULT_USER;
+        ALL_GIFS.add(new Gif("android-explosion",DEFAULT_USER, true));
+        ALL_GIFS.add(new Gif("ben-and-mike",DEFAULT_USER, true));
+        ALL_GIFS.add(new Gif("book-dominos",DEFAULT_USER, false));
+        ALL_GIFS.add(new Gif("compiler-bot",DEFAULT_USER, false));
+        ALL_GIFS.add(new Gif("cowboy-coder",DEFAULT_USER, true));
+        ALL_GIFS.add(new Gif("infinite-andrew",DEFAULT_USER, false));
     }
 
     public static List<Gif> findAll(){
