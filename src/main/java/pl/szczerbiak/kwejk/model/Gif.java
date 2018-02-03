@@ -9,6 +9,8 @@ public class Gif {
         this.name = name;
     }
 
+
+
     public Gif(String name, String username, boolean favorite) {
         this.name = name;
         this.username = username;

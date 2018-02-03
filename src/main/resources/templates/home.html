@@ -45,10 +45,13 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           <h1>Miejsce na wyświetlenie gifów:)</h1></div>
-         <div>
-           <img th:src="@{/gifs/cowboy-coder.gif}"/>
-           <img th:src="${gif.getThymeleafFilePath()}"/></div>
+            <h2>Watch our funny gifs!</h2>
+            <div th:each="gif : ${gifs}" class="col s12 l4">
+                <div class="row col s12">
+                    <img th:src="${gif.getThymeleafFilePath()}" th:alt="${gif.name}" />
+                </div>
+            </div>
+        </div>
     </div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
