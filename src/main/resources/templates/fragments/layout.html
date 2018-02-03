@@ -9,9 +9,9 @@
 <div class="search-bar container" th:fragment="search-bar">
     <div class="row">
         <div class="col s12">
-            <form action="#" method="get">
+            <form action="#" th:action="@{/}" method="post">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Search for gifs..." required="required" autocomplete="off"/>
+                    <input name="name" type="search" placeholder="Search for gifs..." required="required" autocomplete="on"/>
                     <i class="material-icons">search</i>
                 </div>
             </form>

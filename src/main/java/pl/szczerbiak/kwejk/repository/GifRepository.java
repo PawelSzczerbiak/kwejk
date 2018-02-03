@@ -32,7 +32,7 @@ public class GifRepository {
 
     public static Gif findByName(String name){
         return ALL_GIFS.stream()
-                .filter(p-> p.getName().equals(name))
+                .filter(p-> p.getName().contains(name))
                 .findFirst()
                 .orElse(ALL_GIFS.get(1)); // TODO: better choice?
     }
