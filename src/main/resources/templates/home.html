@@ -43,18 +43,9 @@
             </div>
         </div>
     </div>
-    <div class="gifs container">
-        <div class="row">
-            <h2>Watch our funny gifs!</h2>
-            <div th:each="gif : ${gifs}" class="col s12 l4">
-                <div class="row col s12">
-                    <a th:href="@{'/gif/' + ${gif.name}}">
-                        <img th:src="${gif.getThymeleafFilePath()}" th:alt="${gif.name}" />
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2>Watch our funny gifs!</h2>
+
+
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>

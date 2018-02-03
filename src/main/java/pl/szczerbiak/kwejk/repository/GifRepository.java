@@ -13,11 +13,11 @@ public class GifRepository {
 
     static{
         ALL_GIFS.add(new Gif("android-explosion",getDefaultUser(), true));
-        ALL_GIFS.add(new Gif("ben-and-mike",getDefaultUser(), false));
-        ALL_GIFS.add(new Gif("book-dominos",getDefaultUser(), true));
+        ALL_GIFS.add(new Gif("ben-and-mike",getDefaultUser(), true));
+        ALL_GIFS.add(new Gif("book-dominos",getDefaultUser(), false));
         ALL_GIFS.add(new Gif("compiler-bot",getDefaultUser(), false));
-        ALL_GIFS.add(new Gif("cowboy-coder",getDefaultUser(), false));
-        ALL_GIFS.add(new Gif("infinite-andrew",getDefaultUser(), true));
+        ALL_GIFS.add(new Gif("cowboy-coder",getDefaultUser(), true));
+        ALL_GIFS.add(new Gif("infinite-andrew",getDefaultUser(), false));
     }
 
     public static String getDefaultUser() {
@@ -40,5 +40,4 @@ public class GifRepository {
                 .findFirst()
                 .orElse(ALL_GIFS.get(1));
     }
-
 }
