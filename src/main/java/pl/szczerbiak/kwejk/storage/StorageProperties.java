@@ -8,9 +8,9 @@ public class StorageProperties {
     /**
      * Folder location for storing files
      */
-    private String location = "src/main/resources/static/gifs-uploaded";
+    private static String location = "src/main/resources/static/gifs-uploaded";
 
-    public String getLocation() {
+    public static String getLocation() {
         return location;
     }
 

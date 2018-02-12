@@ -12,6 +12,7 @@ public class GifController {
     @GetMapping("/")
     public String hello(Model model){
         model.addAttribute("gifs", GifRepository.findAll());
+        model.addAttribute("gifsUploaded", GifRepository.findAllUploaded());
         return "home";
     }
 
