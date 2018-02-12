@@ -223,7 +223,7 @@ nav ul li.active, nav ul li:hover {
 
 .warning-file-uploaded {
     text-align: center;
-    color: #D50000;
+    color: #0f9d58;
 }
 
 @media only screen and (max-width: 992px) {
