@@ -13,28 +13,12 @@
     <title>giflib | Home</title>
 </head>
 <body>
-    <div class="navbar-fixed">
-        <nav>
-            <div class="container">
-                <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
-                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li class="active"><a th:href="@{/}">Explore</a></li>
-                    <li><a th:href="@{/categories}">Categories</a></li>
-                    <li><a th:href="@{/favorites}">Favorites</a></li>
-                </ul>
-                <ul id="mobile-nav" class="side-nav">
-                    <li class="active"><a th:href="@{/}">Explore</a></li>
-                    <li><a th:href="@{/categories}">Categories</a></li>
-                    <li><a th:href="@{/favorites}">Favorites</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+
+    <div th:replace="fragments/layout :: header(type='explore')"></div>
 
     <div th:replace="fragments/layout :: search-bar"></div>
 
-    <h2>Watch our funny gifs!</h2>
+    <h3 class="center-align">Watch our funny gifs!</h3>
 
     <div th:replace="fragments/layout :: gifs-list"></div>
 
