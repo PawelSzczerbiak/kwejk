@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pl.szczerbiak.kwejk.repository.GifRepository;
 import pl.szczerbiak.kwejk.storage.StorageFileNotFoundException;
 import pl.szczerbiak.kwejk.storage.StorageService;
 
@@ -55,6 +56,7 @@ public class FileUploadController {
     @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
+
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",

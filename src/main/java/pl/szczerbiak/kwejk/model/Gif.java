@@ -4,22 +4,23 @@ public class Gif {
     private String name;
     private String username;
     private boolean favorite;
+    private int categoryId;
     private boolean uploaded;
+
 
     public Gif(String name) {
         this.name = name;
     }
 
-    public Gif(String name, String username, boolean favorite) {
+    public Gif(String name, String username, boolean favorite, int categoryId) {
         this.name = name;
         this.username = username;
         this.favorite = favorite;
+        this.categoryId = categoryId;
     }
 
-    public Gif(String name, String username, boolean favorite, boolean uploaded) {
-        this.name = name;
-        this.username = username;
-        this.favorite = favorite;
+    public Gif(String name, String username, boolean favorite, int categoryId, boolean uploaded) {
+        this(name, username, favorite, categoryId);
         this.uploaded = uploaded;
     }
 
@@ -53,6 +54,14 @@ public class Gif {
 
     public void setUploaded(boolean uploaded) {
         this.uploaded = uploaded;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getThymeleafFilePath(){
