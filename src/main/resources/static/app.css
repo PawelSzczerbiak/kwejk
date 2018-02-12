@@ -221,6 +221,11 @@ nav ul li.active, nav ul li:hover {
     border: 1px solid #E0DCE6;
 }
 
+.warning-file-uploaded {
+    text-align: center;
+    color: #D50000;
+}
+
 @media only screen and (max-width: 992px) {
     nav .brand-logo {
         left: 0;

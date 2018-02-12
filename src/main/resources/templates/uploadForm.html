@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" th:href="@{/favicon.png}" />
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+    <title>Upload</title>
+</head>
+<body>
+
+    <div th:replace="fragments/layout :: header(type='upload')"></div>
+
+    <h4 class="center-align">Upload a file!</h4>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <form method="POST" enctype="multipart/form-data" action="/upload">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Choose a file (max size: 2 MB)">
+                        </div>
+                    </div>
+                    <button class="btn" type="submit" value="Upload">Submit</button>
+                    <!--<div class="btn">-->
+                        <!--<span>Upload</span>-->
+                        <!--<input type="submit" value="Upload">-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+
+    <div th:if="${message}">
+        <p class="warning-file-uploaded" th:text="${message}"/>
+    </div>
+
+    <p>List of uploaded files: </p>
+
+    <div>
+        <ul>
+            <li th:each="file : ${files}">
+                <a th:href="${file}" th:text="${file}" />
+            </li>
+        </ul>
+    </div>
+
+    </div>
+
+
+    <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
+<script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+<script th:src="@{/app.js}"></script>
+</body>
+</html>

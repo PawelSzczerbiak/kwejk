@@ -13,11 +13,13 @@
             <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li th:class="${type}=='explore' ? 'active' : ''"><a th:href="@{/}">Explore</a></li>
+                <li th:class="${type}=='upload' ? 'active' : ''"><a th:href="@{/upload}">Upload</a></li>
                 <li th:class="${type}=='categories' ? 'active' : ''"><a th:href="@{/categories}">Categories</a></li>
                 <li th:class="${type}=='favorites' ? 'active' : ''"><a th:href="@{/favorites}">Favorites</a></li>
             </ul>
             <ul id="mobile-nav" class="side-nav">
                 <li th:class="${type}=='explore' ? 'active' : ''"><a th:href="@{/}">Explore</a></li>
+                <li th:class="${type}=='upload' ? 'active' : ''"><a th:href="@{/upload}">Upload</a></li>
                 <li th:class="${type}=='categories' ? 'active' : ''"><a th:href="@{/categories}">Categories</a></li>
                 <li th:class="${type}=='favorites' ? 'active' : ''"><a th:href="@{/favorites}">Favorites</a></li>
             </ul>
