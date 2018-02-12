@@ -13,12 +13,12 @@ import java.util.stream.Stream;
 public class GifRepository {
 
     private static final String DEFAULT_USER = "Pawel"; // TODO: add login possibility
-    private static final int DEFAULT_CATEGORY = 3; // category: other
+    private static final int DEFAULT_CATEGORY = 3; // default category: other
     private static final List<Gif> DEFAULT_GIFS = new ArrayList<>();
     private static List<Gif> UPLOADED_GIFS = new ArrayList<>();
 
     static {
-        // "Default" gifs
+        // Adding default gifs
         DEFAULT_GIFS.add(new Gif("android-explosion", DEFAULT_USER, true, 1));
         DEFAULT_GIFS.add(new Gif("ben-and-mike", DEFAULT_USER, true, 2));
         DEFAULT_GIFS.add(new Gif("book-dominos", DEFAULT_USER, false, 3));
@@ -36,7 +36,6 @@ public class GifRepository {
     }
 
     public static List<Gif> findAll() {
-        updateUploadedGifs();
         return Arrays.asList(findAllDefault(), findAllUploaded()).stream()
                 .flatMap(p -> p.stream())
                 .collect(Collectors.toList());
@@ -55,7 +54,17 @@ public class GifRepository {
                 .orElse(findAll().get(1)); // TODO: better choice?
     }
 
-    public static void updateUploadedGifs() {
+    public static List<Gif> findAllByName(String name) {
+        return findAll().stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public static void updateUploadedGifs(String fileName) {
+
+        // OLD METHOD - update with respect to the catalog's content
+
+/*
         UPLOADED_GIFS = new ArrayList<>();
         File f = new File(StorageProperties.getLocation());
         ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
@@ -63,6 +72,12 @@ public class GifRepository {
         for (String name : names) {
             UPLOADED_GIFS.add(new Gif(name.split("\\.")[0], DEFAULT_USER, false, DEFAULT_CATEGORY, true));
         }
+*/
+
+        // NEW METHOD - add new file to the list
+
+        UPLOADED_GIFS.add(new Gif(fileName.split("\\.")[0], DEFAULT_USER, false, DEFAULT_CATEGORY, true));
+
     }
 
     public static List<Gif> findByCategoryId(int categoryId) {

@@ -27,12 +27,25 @@
     </nav>
 </div>
 
-<div class="search-bar container" th:fragment="search-bar">
+<div class="search-bar container" th:fragment="search-bar-gifs">
     <div class="row">
         <div class="col s12">
             <form action="#" th:action="@{/}" method="post">
                 <div class="input-field">
                     <input name="name" type="search" placeholder="Search for gifs..." required="required" autocomplete="on"/>
+                    <i class="material-icons">search</i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="search-bar container" th:fragment="search-bar-categories">
+    <div class="row">
+        <div class="col s12">
+            <form action="#" th:action="@{/categories}" method="post">
+                <div class="input-field">
+                    <input name="name" type="search" placeholder="Search for categories..." required="required" autocomplete="on"/>
                     <i class="material-icons">search</i>
                 </div>
             </form>

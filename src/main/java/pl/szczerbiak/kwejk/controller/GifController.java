@@ -16,7 +16,7 @@ public class GifController {
     }
 
     @PostMapping("/")
-    public String helloSearch(@RequestParam String name, RedirectAttributes redirectAttributes){
+    public String gifSearch(@RequestParam String name, RedirectAttributes redirectAttributes){
         redirectAttributes.addFlashAttribute("gif", GifRepository.findByName(name));
         // TODO: better to show all found matches instead of only one
         return "redirect:/gif/"+name;

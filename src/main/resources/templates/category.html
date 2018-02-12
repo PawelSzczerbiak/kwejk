@@ -16,21 +16,13 @@
 
     <div th:replace="fragments/layout :: header(type='categories')"></div>
 
-    <div th:replace="fragments/layout :: search-bar"></div>
+    <div th:replace="fragments/layout :: search-bar-categories"></div>
 
-    <div class="gifs container">
+    <div class="container">
         <div class="chip" th:text="${category.name}">category name</div>
-        <div class="row">
-            <div th:each="gif : ${gifs}" class="col s12 l4">
-                <div class="row col s12">
-                    <a th:href="@{'/gif/' + ${gif.name}}">
-                        <img th:src="@{'/gifs' + (${gif.uploaded} ? '-uploaded/' : '/') + ${gif.name} + '.gif'}" th:alt="${gif.name}"/>
-                        <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <div th:replace="fragments/layout :: gifs-list"></div>
 
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>

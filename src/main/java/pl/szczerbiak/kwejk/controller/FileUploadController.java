@@ -57,6 +57,8 @@ public class FileUploadController {
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
+        // Update list of uploaded gifs
+        GifRepository.updateUploadedGifs(file.getOriginalFilename());
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",

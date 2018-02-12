@@ -18,8 +18,21 @@ public class CategoryRepository {
         ALL_CATEGORIES.add(new Category(3L, "Other"));
     }
 
+    public static Category findByName(String name) {
+        return findAll().stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .findFirst()
+                .orElse(findByCategoryId(3)); // TODO: better choice?
+    }
+
+    public static List<Category> findAllByName(String name) {
+        return findAll().stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
     public static Category findByCategoryId(int categoryId){
-        return ALL_CATEGORIES.stream()
+        return findAll().stream()
                 .filter(category -> (category.getId() == categoryId))
                 .collect(Collectors.toList()).get(0);
     }
