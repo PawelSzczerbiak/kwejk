@@ -19,12 +19,12 @@ public class GifRepository {
 
     static {
         // Adding default gifs
-        DEFAULT_GIFS.add(new Gif("android-explosion", DEFAULT_USER, true, 1));
-        DEFAULT_GIFS.add(new Gif("ben-and-mike", DEFAULT_USER, true, 2));
-        DEFAULT_GIFS.add(new Gif("book-dominos", DEFAULT_USER, false, 3));
-        DEFAULT_GIFS.add(new Gif("compiler-bot", DEFAULT_USER, false, 3));
-        DEFAULT_GIFS.add(new Gif("cowboy-coder", DEFAULT_USER, true, 1));
-        DEFAULT_GIFS.add(new Gif("infinite-andrew", DEFAULT_USER, false, 2));
+        DEFAULT_GIFS.add(new Gif("android-explosion.gif", DEFAULT_USER, true, 1));
+        DEFAULT_GIFS.add(new Gif("ben-and-mike.gif", DEFAULT_USER, true, 2));
+        DEFAULT_GIFS.add(new Gif("book-dominos.gif", DEFAULT_USER, false, 3));
+        DEFAULT_GIFS.add(new Gif("compiler-bot.gif", DEFAULT_USER, false, 3));
+        DEFAULT_GIFS.add(new Gif("cowboy-coder.gif", DEFAULT_USER, true, 1));
+        DEFAULT_GIFS.add(new Gif("infinite-andrew.gif", DEFAULT_USER, false, 2));
     }
 
     public static List<Gif> findAllDefault() {
@@ -32,6 +32,7 @@ public class GifRepository {
     }
 
     public static List<Gif> findAllUploaded() {
+        updateUploadedGifs();
         return UPLOADED_GIFS;
     }
 
@@ -60,29 +61,21 @@ public class GifRepository {
                 .collect(Collectors.toList());
     }
 
-    public static void updateUploadedGifs(String fileName) {
-
-        // OLD METHOD - update with respect to the catalog's content
-
-/*
-        UPLOADED_GIFS = new ArrayList<>();
-        File f = new File(StorageProperties.getLocation());
-        ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
-
-        for (String name : names) {
-            UPLOADED_GIFS.add(new Gif(name.split("\\.")[0], DEFAULT_USER, false, DEFAULT_CATEGORY, true));
-        }
-*/
-
-        // NEW METHOD - add new file to the list
-
-        UPLOADED_GIFS.add(new Gif(fileName.split("\\.")[0], DEFAULT_USER, false, DEFAULT_CATEGORY, true));
-
-    }
-
-    public static List<Gif> findByCategoryId(int categoryId) {
+    public static List<Gif> findAllByCategoryId(int categoryId) {
         return findAll().stream()
                 .filter(p -> p.getCategoryId() == categoryId)
                 .collect(Collectors.toList());
     }
+
+    private static void updateUploadedGifs(){
+
+        UPLOADED_GIFS = new ArrayList<>();
+            File f = new File(StorageProperties.getLocation());
+            ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
+
+            for (String name : names) {
+                UPLOADED_GIFS.add(new Gif(name, DEFAULT_USER, false, DEFAULT_CATEGORY, true));
+            }
+    }
+
 }

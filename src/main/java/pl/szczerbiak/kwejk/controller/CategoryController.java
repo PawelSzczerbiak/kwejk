@@ -18,21 +18,20 @@ public class CategoryController {
 
     @PostMapping("/categories")
     public String categorySearch(@RequestParam String name, RedirectAttributes redirectAttributes){
-        redirectAttributes.addFlashAttribute("id", String.valueOf(CategoryRepository.findByName(name).getId()));
-        // TODO: better to show all found matches instead of only one
-        return "redirect:/categoryfound";
+        redirectAttributes.addFlashAttribute("name", name);
+        return "redirect:/categoriesfound";
     }
 
-    @GetMapping("/categoryfound")
-    public String displayFoundCategory(Model model, @ModelAttribute("id") int id){
-        model.addAttribute("categories", CategoryRepository.findByCategoryId(id));
+    @GetMapping("/categoriesfound")
+    public String displayFoundCategories(Model model, @ModelAttribute("name") String name){
+        model.addAttribute("categories", CategoryRepository.findAllByName(name));
         return "categories";
     }
 
     @GetMapping("category/{id}")
     public String displayCategoryGifs(@PathVariable int id, Model model){
         model.addAttribute("category", CategoryRepository.findByCategoryId(id));
-        model.addAttribute("gifs", GifRepository.findByCategoryId(id));
+        model.addAttribute("gifs", GifRepository.findAllByCategoryId(id));
         return "category";
     }
 }
