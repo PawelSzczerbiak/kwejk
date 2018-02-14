@@ -1,16 +1,13 @@
 package pl.szczerbiak.kwejk.model;
 
+import pl.szczerbiak.kwejk.storage.StorageProperties;
+
 public class Gif {
     private String name;
     private String username;
     private boolean favorite;
     private int categoryId;
     private boolean uploaded;
-
-
-    public Gif(String name) {
-        this.name = name;
-    }
 
     public Gif(String name, String username, boolean favorite, int categoryId) {
         this.name = name;
@@ -64,7 +61,11 @@ public class Gif {
         this.categoryId = categoryId;
     }
 
-    public String getThymeleafFilePath(){
-        return new StringBuilder("").append("/gifs/").append(getName()).append(".gif").toString();
+    public String getFilePath() {
+        if (getUploaded() == false) {
+            return new StringBuilder("/").append("gifs/").append(getName()).toString();
+        } else {
+            return new StringBuilder("~/").append(StorageProperties.getLocation()).append("/").append(getName()).toString();
+        }
     }
 }

@@ -23,6 +23,8 @@ import pl.szczerbiak.kwejk.repository.GifRepository;
 import pl.szczerbiak.kwejk.storage.StorageFileNotFoundException;
 import pl.szczerbiak.kwejk.storage.StorageService;
 
+import static pl.szczerbiak.kwejk.repository.GifRepository.updateUploadedGifs;
+
 @Controller
 public class FileUploadController {
 
@@ -60,6 +62,9 @@ public class FileUploadController {
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
+
+        // Update uploaded gifs
+        updateUploadedGifs();
 
         return "redirect:/upload";
     }

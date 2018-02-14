@@ -16,6 +16,8 @@ public class CategoryController {
         return "categories";
     }
 
+    // TODO: more efficient searching !!!
+
     @PostMapping("/categories")
     public String categorySearch(@RequestParam String name, RedirectAttributes redirectAttributes){
         redirectAttributes.addFlashAttribute("name", name);

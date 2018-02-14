@@ -1,4 +1,4 @@
-package pl.szczerbiak.kwejk.controller;
+package pl.szczerbiak.kwejk.controller.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

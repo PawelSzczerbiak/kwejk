@@ -21,7 +21,7 @@
     <div class="gif-detail container">
         <div class="frame row">
             <div class="col s12">
-                <img th:src="@{ (${gif.uploaded} ? '~/upload/files/' : '/gifs/') + ${gif.name}}" th:alt="${gif.name}"/>
+                <img th:src="@{${gif.getFilePath()}}" th:alt="${gif.name}"/>
                 <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>
             </div>
         </div>
